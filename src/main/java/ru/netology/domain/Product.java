@@ -1,11 +1,13 @@
 package ru.netology.domain;
 
+import java.util.Collection;
 import java.util.Objects;
 
-public class Product {
-    private int id;
-    private String name;
-    private int price;
+    public class Product {
+
+        private int id;
+        private String name;
+        private int price;
 
     public Product() {
     }
@@ -39,6 +41,7 @@ public class Product {
     public void setPrice(int price) {
         this.price = price;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -46,6 +49,7 @@ public class Product {
         Product product = (Product) o;
         return id == product.id && price == product.price && name.equals(product.name);
     }
+
     @Override
     public int hashCode() {
         return Objects.hash(id, name, price);
@@ -59,6 +63,4 @@ public class Product {
                 ", price=" + price +
                 '}';
     }
-
-
 }
