@@ -9,44 +9,47 @@ import ru.netology.repository.ProductRepository;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class ProductRepositoryTesting {
-//    private Product[] items = new Product[0];
+
     private ProductRepository repository = new ProductRepository();
-    private Book coreJava_1 = new Book();
-    private Book coreJava_2 = new Book();
-    private Book coreJava_3 = new Book();
-    private Book coreJava_4 = new Book();
-    private Smartphone Samsung = new Smartphone(1,"Galaxy", 1,"Samsung");
-    private Smartphone IPhone = new Smartphone(2,"IPhone11", 1,"Apple");
-    private Smartphone Honor = new Smartphone(3,"HonorA10", 1,"Honor");
+    private Book book1 = new Book(1,"Отци и дети", 500, "Тургенев И.С.");
+    private Book book2 = new Book(2,"Мастер и Маргарита",200,"Булгаков М.Ф.");
+    private Book book3 = new Book(3, "Сто лет одиночества", 200, "Маркес Г.Г.");
+    private Book book4 = new Book(4, "Атлант расправил плечи", 300, "Рэнд А.");
+    private Smartphone samsung = new Smartphone(1,"Galaxy", 1,"Samsung");
+    private Smartphone iPhone = new Smartphone(2,"IPhone11", 1,"Apple");
+    private Smartphone honor = new Smartphone(3,"HonorA10", 1,"Honor");
+
+
 
     @Test
     public void shouldSaveOneItem() {
-        repository.save(coreJava_1);
+        repository.save(book1);
 
-        Product[] expected = new Product[]{coreJava_1};
+        Product[] expected = new Product[]{book1};
         Product[] actual = repository.findAll();
         assertArrayEquals(expected, actual);
     }
 
     @Test
     public void shouldSaveSeveralItem() {
-        repository.save(coreJava_1);
-        repository.save(coreJava_2);
-        repository.save(coreJava_3);
-        repository.save(coreJava_4);
+        repository.save(book1);
+        repository.save(book2);
+        repository.save(book3);
+        repository.save(book4);
 
-        Product[] expected = new Product[]{coreJava_1, coreJava_2, coreJava_3, coreJava_4};
+        Product[] expected = new Product[]{book1, book2, book3, book4};
         Product[] actual = repository.findAll();
         assertArrayEquals(expected, actual);
     }
     @Test
     public void shouldAddAndSavelItem() {
 
-        repository.save(Samsung);
-        repository.save(IPhone);
-        repository.save(Honor);
+        repository.save(samsung);
+        repository.save(iPhone);
+        repository.save(honor);
+        repository.save(book1);
 
-        Product[] expected = new Product[]{Samsung, IPhone, Honor};
+        Product[] expected = new Product[]{samsung, iPhone, honor, book1};
         Product[] actual = repository.findAll();
         assertArrayEquals(expected, actual);
     }

@@ -6,9 +6,15 @@ import ru.netology.domain.Smartphone;
 import ru.netology.repository.ProductRepository;
 
 public class ProductManager {
-    Product product = new Product();
-    private Product[] items = new Product[0];
-    private ProductRepository repository = new ProductRepository();
+
+    private ProductRepository repository;
+
+    public ProductManager(ProductRepository repository) {
+        this.repository = repository;
+    }
+
+    public ProductManager() {
+    }
 
 
     public Product[] searcyBy(String text) {
@@ -17,6 +23,10 @@ public class ProductManager {
             if (matches(product, text)) {
                 Product[] tmp = new Product[result.length + 1];
                 // используйте System.arraycopy, чтобы скопировать всё из result в tmp
+                System.arraycopy(result, 0, tmp, 0, result.length);
+                // кладём последним наш элемент
+                int lastIndex = tmp.length - 1;
+
                 tmp[tmp.length - 1] = product;
                 result = tmp;
             }
@@ -49,19 +59,6 @@ public class ProductManager {
     }
 
     public void add(Product product) {
-        // создаём новый массив размером на единицу больше
-        int length = items.length + 1;
-        Product[] tmp = new Product[length];
-        // itar + tab
-        // копируем поэлементно
-        // for (int i = 0; i < items.length; i++) {
-        //   tmp[i] = items[i];
-        // }
-        System.arraycopy(items, 0, tmp, 0, items.length);
-        // кладём последним наш элемент
-        int lastIndex = tmp.length - 1;
-
-        tmp[lastIndex] = product;
-        items = tmp;
+        repository.save(product);
     }
 }

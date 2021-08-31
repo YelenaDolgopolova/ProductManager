@@ -17,16 +17,9 @@ public class Smartphone extends Product {
         }
     }
 
-//    @Test
-//    public void shouldNotCastToDifferentClass() {
-//        Product product = new Book();
-//        Book book = (Book) product;
-//    }
-
     @Test
     public void shouldUseOverridedMethod() {
         Product product = new Smartphone();
         product.toString();
     }
-
 }

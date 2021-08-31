@@ -10,7 +10,6 @@ public class Book extends Product {
     @Test
     public void shouldHaveAllFieldsAndMethodFromSuperClass() {
         Book book = new Book();
-//    book.
     }
 
     @Test
@@ -22,16 +21,9 @@ public class Book extends Product {
         }
     }
 
-//    @Test
-//    public void shouldNotCastToDifferentClass() {
-//        Product product = new Book();
-//        Smartphone smartphone = (Smartphone) product;
-//    }
-
     @Test
     public void shouldUseOverridedMethod() {
         Product product = new Book();
-        // Вопрос к аудитории: чей метод вызовется?
         product.toString();
     }
 }
