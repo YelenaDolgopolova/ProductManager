@@ -13,8 +13,9 @@ public class ProductRepositoryTesting {
     private ProductRepository repository = new ProductRepository();
     private Book book1 = new Book(1,"Отци и дети", 500, "Тургенев И.С.");
     private Book book2 = new Book(2,"Мастер и Маргарита",200,"Булгаков М.Ф.");
-    private Book book3 = new Book(3, "Сто лет одиночества", 200, "Маркес Г.Г.");
-    private Book book4 = new Book(4, "Атлант расправил плечи", 300, "Рэнд А.");
+    private Book book3 = new Book(325, "Сто лет одиночества", 200, "Маркес Г.Г.");
+    private Book book4 = new Book(445, "Атлант расправил плечи", 300, "Рэнд А.");
+    private Book book5 = new Book(547, "Важные годы", 300, "Мэг Джэй");
     private Smartphone samsung = new Smartphone(1,"Galaxy", 1,"Samsung");
     private Smartphone iPhone = new Smartphone(2,"IPhone11", 1,"Apple");
     private Smartphone honor = new Smartphone(3,"HonorA10", 1,"Honor");
