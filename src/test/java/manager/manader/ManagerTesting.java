@@ -92,32 +92,4 @@ public class ManagerTesting {
         Product[] actual = manager.searcyBy("Мастер и Маргарита");
         assertArrayEquals(expected, actual);
     }
-
-    @ Test
-    public void shouldNotFoundExaption() throws NotFoundException {
-        ProductRepository repository = new ProductRepository();
-        repository.save(book1);
-        repository.save(book2);
-        repository.save(book3);
-        repository.save(book4);
-
-        Assertions.assertThrows(NotFoundException.class, () -> {
-        repository.removeById(500);
-        });
-    }
-
-    @ Test
-    public void shouldDeleteExistElement() throws NotFoundException {
-        ProductRepository repository = new ProductRepository();
-        repository.save(book1);
-        repository.save(book2);
-        repository.save(book3);
-        repository.save(book4);
-
-        repository.removeById(1);
-
-        Product[] expected = new Product[]{book2, book3, book4};
-        Product[] actual = repository.findAll();
-        assertArrayEquals(expected, actual);
-    }
 }
